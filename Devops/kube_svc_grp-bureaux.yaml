@@ -1,12 +1,13 @@
-Name:                     grp-bureaux
-Namespace:                prd
-Selector:                 app=grp-bureaux
-Type:                     NodePort
-IP:                       10.100.78.132
-Port:                     <unset>  80/TCP
-TargetPort:               80/TCP
-NodePort:                 <unset>  31319/TCP
-Endpoints:                172.31.6.104:8,172.31.80.1:80
-Session Affinity:         None
-External Traffic Policy:  Cluster
-Events:                   <none>
+apiVersion: v1
+kind: Service
+metadata:
+  name: grp-bureaux
+  namespace: prd
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: grp-bureaux
+  type: NodePort
