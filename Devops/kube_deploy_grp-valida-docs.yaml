@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: grp-valida-docs
+  name: grp-valida-docs
+  namespace: prd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grp-valida-docs
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: grp-valida-docs
+    spec:
+      containers:
+      - env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
+        image: 00000000.dkr.ecr.sa-east-1.amazonaws.com/prd-grp-valida-docs:9a1f478
+        imagePullPolicy: Always
+        name: grp-valida-docs
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      resources:
+          limits:
+            cpu: 100m
+          requests:
+            cpu: 1m
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
