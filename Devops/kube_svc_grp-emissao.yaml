@@ -1,0 +1,12 @@
+Name:                     grp-emissao
+Namespace:                prd
+Selector:                 app=grp-emissao
+Type:                     NodePort
+IP:                       10.100.79.13
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  31319/TCP
+Endpoints:                172.31.6.10:1,172.31.80.22:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
