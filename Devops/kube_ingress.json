@@ -13,7 +13,7 @@
                 },
                 "name": "ingress-prd",
                 "namespace": "prd",
-                "selfLink": "/apis/extensions/v1beta1/namespaces/prd/ingresses/ingress-prd",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/prd/ingresses/ingress-prd"
             },
             "spec": {
                 "rules": [
@@ -48,7 +48,7 @@
                                         "servicePort": 80
                                     },
                                     "path": "/emissao(/|$)(.*)"
-                                },
+                                }
                             ]
                         }
                     }
@@ -64,3 +64,5 @@
                 }
             }
       }
+    ]
+}
